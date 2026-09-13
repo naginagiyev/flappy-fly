@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Flappy Fly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="stage"></div>
+<div id="vignette"></div>
+<div id="dimmer"></div>
+
+<div id="top-hud">
+  <div id="score">0</div>
+</div>
+
+<div id="brain-view-panel">
+  <div id="activity-panel">
+    <div class="bar-row"><span class="bar-label">Eyes (spotting danger)</span><div class="bar"><div id="bar-visual" class="bar-fill visual"></div></div></div>
+    <div class="bar-row"><span class="bar-label">Alarm signal (L)</span><div class="bar"><div id="bar-dnp01l" class="bar-fill dn"></div></div></div>
+    <div class="bar-row"><span class="bar-label">Alarm signal (R)</span><div class="bar"><div id="bar-dnp01r" class="bar-fill dn"></div></div></div>
+    <div class="bar-row"><span class="bar-label">Backup signal (L)</span><div class="bar"><div id="bar-dnp03l" class="bar-fill dn2"></div></div></div>
+    <div class="bar-row"><span class="bar-label">Backup signal (R)</span><div class="bar"><div id="bar-dnp03r" class="bar-fill dn2"></div></div></div>
+  </div>
+  <canvas id="brain-view-canvas"></canvas>
+  <div id="brain-view-legend">
+    <span><i class="dot visual"></i>eyes</span>
+    <span><i class="dot dn"></i>alarm signal</span>
+    <span><i class="dot relay"></i>other brain cells</span>
+  </div>
+</div>
+
+<div id="start-screen" class="overlay">
+  <div class="panel">
+    <svg class="flyicon" viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="16" ry="22" fill="#2B2438"/><circle cx="50" cy="34" r="14" fill="#2B2438"/><circle cx="43" cy="30" r="6" fill="#C1272D"/><circle cx="57" cy="30" r="6" fill="#C1272D"/><ellipse cx="30" cy="42" rx="20" ry="10" fill="#CFE8F3" opacity="0.75" transform="rotate(-18 30 42)"/><ellipse cx="70" cy="42" rx="20" ry="10" fill="#CFE8F3" opacity="0.75" transform="rotate(18 70 42)"/></svg>
+    <div class="title">Flappy Fly</div>
+    <button class="play" id="btn-start">Take Flight</button>
+    <p class="hint">Click Take Flight, then hands off.</p>
+  </div>
+</div>
+
+<div id="gameover-screen" class="overlay hidden">
+  <div class="panel">
+    <div class="title" id="over-title">Splat!</div>
+    <div class="bigscore" id="final-score">0</div>
+    <div class="row">
+      <div class="stat"><div class="num" id="best-score">0</div><div class="lbl">BEST RUN</div></div>
+      <div class="stat"><div class="num" id="obstacle-count">0</div><div class="lbl">SWATTERS DODGED</div></div>
+    </div>
+    <button class="play" id="btn-retry">Fly Again</button>
+  </div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
